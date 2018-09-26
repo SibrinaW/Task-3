@@ -536,7 +536,90 @@ generateMap();
 
         public override void move()
         {
-           
+            if (health > health * 0.25)
+            {
+                if (positionY == closestUnitY)
+                {
+                    if (positionX < closestUnitX)
+                    {
+                        nextPositionX = closestUnitX - (positionX + 1);
+                        if (fm.arrayMap[nextPositionX, positionY].Name == "E")
+                        {
+                            positionX = nextPositionX;
+                        }
+                    }
+                    else if (positionX > closestUnitX)
+                    {
+                        nextPositionX = positionX - 1;
+                        if (fm.arrayMap[nextPositionX, positionY].Name == "E")
+                        {
+                            positionX = nextPositionX;
+                        }
+                    }
+                }
+                else if (positionX == closestUnitX)
+                {
+                    if (positionY < closestUnitY)
+                    {
+                        nextPositionY = closestUnitY - (closestUnitY - 1);
+                        if (fm.arrayMap[positionX, nextPositionY].Name == "E")
+                        {
+                            positionY = nextPositionY;
+                        }
+                    }
+                    else if (positionY > closestUnitY)
+                    {
+                        nextPositionY = positionY - 1;
+                        if (fm.arrayMap[positionX, nextPositionY].Name == "E")
+                        {
+                            positionY = nextPositionY;
+                        }
+                    }
+                    else if (positionX == closestUnitX && positionY == closestUnitY)
+                    {
+                        if (positionX < closestUnitX && positionY < closestUnitY)
+                        {
+                            nextPositionX = closestUnitX - (positionX + 1);
+                            nextPositionY = closestUnitY - (positionY + 1);
+                            if (fm.arrayMap[nextPositionX, nextPositionY].Name == "E")
+                            {
+                                positionX = nextPositionX;
+                                positionY = nextPositionY;
+                            }
+                        }
+                        else if (positionX > closestUnitX && positionY > closestUnitY)
+                        {
+                            nextPositionX = positionX - 1;
+                            nextPositionY = positionY - 1;
+                            if (fm.arrayMap[nextPositionX, nextPositionY].Name == "E")
+                            {
+                                positionX = nextPositionX;
+                                positionY = nextPositionY;
+                            }
+                        }
+                    }
+                    else if (positionX < closestUnitX && positionY > closestUnitY)
+                    {
+                        nextPositionX = closestUnitX - (positionX + 1);
+                        nextPositionY = positionY;
+                        if (fm.arrayMap[nextPositionX, nextPositionY].Name == "E")
+                        {
+                            positionX = nextPositionX;
+                            positionY = nextPositionY;
+                        }
+                    }
+                    else if (positionX > closestUnitX && positionY < closestUnitY)
+                    {
+                        nextPositionX = positionX - 1;
+                        nextPositionY = closestUnitY - (positionY + 1);
+                        if (fm.arrayMap[nextPositionX, nextPositionY].Name == "E")
+                        {
+                            positionX = nextPositionX;
+                            positionY = nextPositionY;
+                        }
+                    }
+                }
+            }
         }
 
         public override void combat()
