@@ -520,7 +520,7 @@ generateMap();
         protected int closestUnitY;
         
         public MeleeUnit(Form1 fm)
-        {
+        {// Melee Units information
             this.fm = fm;
             name = "Malee Unit";
             health = 100;
@@ -531,7 +531,7 @@ generateMap();
 
         public override void getClosestUnit()
         {
-            base.getClosestUnit();
+            base.getClosestUnit();// To check for the clostest unit in order to move on to combat
         }
 
         public override void move()
@@ -710,7 +710,7 @@ generateMap();
         protected int closestUnitY;
 
         public RangedUnit()
-        {
+        {// Information
             name = "Ranged Unit";
             health = 100;
             TeamName = "Nanobots";
@@ -721,11 +721,11 @@ generateMap();
 
         public override void getClosestUnit()
         {
-            base.getClosestUnit();
+            base.getClosestUnit(); //To check for the clostest unit in order to move on to combat
         }
 
         public override void move()
-        {
+        { // This function eable units to move
               if (health>health*0.25)
               {
                  if ( positionY == closestUnitY)
@@ -900,7 +900,7 @@ generateMap();
         protected int closestUnitY;
 
         public TankUnit(Form1 fm)
-        {
+        {// Information 
             this.fm = fm;
             name = "Tank Unit";
             health = 100;
@@ -920,7 +920,7 @@ generateMap();
         }
 
         public override void move()
-        {
+        {// This function eable units to move
             if (health > health * 0.25)
             {
                 if (positionY == closestUnitY)
@@ -1096,7 +1096,7 @@ generateMap();
         protected int closestUnitY;
 
         public RogueUnit(Form1 fm)
-        {
+        {// Info
             this.fm = fm;
             name = "Rogue Unit";
             health = 100;
@@ -1116,7 +1116,7 @@ generateMap();
         }
 
         public override void move()
-        {
+        {// This function eable units to move
             if (health > health * 0.25)
             {
                 if (positionY == closestUnitY)
@@ -1285,7 +1285,7 @@ generateMap();
     }
 
     public class NeutralUnit : Unit
-    {
+    {// Info
         Form1 fm;
         int distance = 100;
         protected int closestUnitX;
@@ -1312,7 +1312,7 @@ generateMap();
         }
 
         public override void move()
-        {
+        { // This function eable units to move
             if (health > health * 0.25)
             {
                 if (positionY == closestUnitY)
@@ -1519,7 +1519,7 @@ generateMap();
     public class ResourceBuilding : Buildings
     {
         Form1 fm;
-
+        // Genarate resources 
         private string resourceType;
         private int resourcePerTick = 0;
         private int resourceRemaining1 = 0;
